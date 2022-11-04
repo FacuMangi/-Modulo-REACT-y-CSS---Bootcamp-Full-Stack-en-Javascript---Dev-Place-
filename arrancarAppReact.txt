@@ -1,0 +1,4 @@
+(en el directorio deseado)
+npx create-react-app (nombre de la app)
+
+npm start (ejecuta la app)
