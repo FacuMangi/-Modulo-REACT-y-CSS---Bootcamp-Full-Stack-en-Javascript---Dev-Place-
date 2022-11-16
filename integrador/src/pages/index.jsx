@@ -4,6 +4,11 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import arrayProducts from '../Data/Data';
+
+
+//type, title, img, description, price
+
 
 export function Index() {
     return (
@@ -49,61 +54,12 @@ export function Index() {
                     </Carousel.Item>
                 </Carousel>
             </div>
-
+            
             <div className="container">
                 <Carousel fade>
                     <Carousel.Item>
                         <CardGroup>
-                            <Card className="card-item">
-                                <Card.Img variant="top" src="https://http2.mlstatic.com/D_Q_NP_787221-MLA48007684849_102021-AB.webp" />
-                                <Card.Body>
-                                    <Card.Title>$142.499</Card.Title>
-                                    <Card.Text>
-                                        Smart TV Samsung Series 7 UN55AU7000GCZB LED 4K 55" 220V - 240V
-                                    </Card.Text>
-                                </Card.Body>
-
-                            </Card>
-                            <Card className="card-item">
-                                <Card.Img variant="top" src="https://http2.mlstatic.com/D_Q_NP_973781-MLA48131216539_112021-AB.webp" />
-                                <Card.Body>
-                                    <Card.Title>$53.999</Card.Title>
-                                    <Card.Text>
-                                        Monitor gamer Samsung F24T35 led 24" azul y gris oscuro 100V/240V
-                                    </Card.Text>
-                                </Card.Body>
-
-                            </Card>
-                            <Card className="card-item">
-                                <Card.Img variant="top" src="https://http2.mlstatic.com/D_Q_NP_765874-MLA47146197629_082021-AB.webp" />
-                                <Card.Body>
-                                    <Card.Title>$34.999</Card.Title>
-                                    <Card.Text>
-                                        Tablet Samsung Galaxy Tab A7 Lite SM-T220 8.7" 32GB gris y 3GB de memoria RAM
-                                    </Card.Text>
-                                </Card.Body>
-
-                            </Card>
-                            <Card className="card-item">
-                                <Card.Img variant="top" src="https://http2.mlstatic.com/D_Q_NP_693687-MLA52131317239_102022-AB.webp" />
-                                <Card.Body>
-                                    <Card.Title>$21.812</Card.Title>
-                                    <Card.Text>
-                                        Taladro Atornillador Daewoo Inalambrico 18v Kit Bosch Maleti
-                                    </Card.Text>
-                                </Card.Body>
-
-                            </Card>
-                            <Card className="card-item">
-                                <Card.Img variant="top" src="https://http2.mlstatic.com/D_Q_NP_879170-MLA45629747467_042021-AB.webp" />
-                                <Card.Body>
-                                    <Card.Title>$185.147</Card.Title>
-                                    <Card.Text>
-                                        Notebook Lenovo IdeaPad 14IIL05 platinum gray 14", Intel Core i5 1035G1 8GB de RAM 512GB SSD
-                                    </Card.Text>
-                                </Card.Body>
-
-                            </Card>
+                            <GenerateCards />
                         </CardGroup>
                     </Carousel.Item>
 
@@ -198,5 +154,32 @@ export function Index() {
                 </Row>
             </div>
         </>
+    )
+}
+
+function GenerateCards(props) {
+    return (
+        <>
+            {arrayProducts.map((item, key) => {
+                if (props.type == "Electronics") 
+                {
+                    <ProductCard items={item} key={key}/>
+                    }
+                })}
+        </>
+    );
+}
+
+function ProductCard(props) {
+    return (
+        <Card className="card-item">
+            <Card.Img variant="top" src={props.items.img} />
+            <Card.Body>
+                <Card.Title>{props.items.price}</Card.Title>
+                <Card.Text>
+                    {props.items.description}
+                </Card.Text>
+            </Card.Body>
+        </Card>
     )
 }

@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
+
 export const Layout = () => {
   return (
     <div>
@@ -27,7 +28,7 @@ export const Layout = () => {
                 Electronics
               </NavDropdown.Item>
               <NavDropdown.Item href="#action4">
-                Clothing
+                Furniture
               </NavDropdown.Item>
               <NavDropdown.Item href="#action5">
                 Tolls
@@ -46,6 +47,15 @@ export const Layout = () => {
               <Nav.Link href="#action2">Sell</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="/help">Help</Nav.Link>
+              <Navbar.Brand href="/" >
+                <img
+                  alt="Cart icon"
+                  src="/white-cart.png"
+                  width="40"
+                  height="30"
+                  className="d-inline-block align-top"
+                />
+              </Navbar.Brand>
             </Nav>
             <Form className="d-flex">
               <Form.Control
@@ -56,15 +66,6 @@ export const Layout = () => {
               />
               <Button variant="light" href="/register">Register</Button>
             </Form>
-            <Navbar.Brand href="/" >
-              <img
-                src="favicon.ico"
-                width="30"
-                height="30"
-                className="d-inline-block align-top"
-                alt="React Bootstrap logo"
-              />
-            </Navbar.Brand>
           </Navbar.Collapse>
         </Container>
       </Navbar>
